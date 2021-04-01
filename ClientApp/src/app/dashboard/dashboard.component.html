@@ -1,0 +1,40 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <app-nav-menu [numberItemsInCart]="CartCount" [CurrentPageLandedOn]="CurrentPageUserIsOn"></app-nav-menu>
+    <div class="EditBanner">
+        <h2 style="color: #f1cc97;">ETrade</h2>
+        <h4>Members</h4>
+    </div>
+
+    <div style="width: 1000px; margin: 52px 0px 100px 133px;">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Member Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Misc</th>
+                    <th scope="col">Products for Sale</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <th scope="row"></th>
+                    <td>{{user.FirstName}} {{user.LastName}}</td>
+                    <td>{{user.Email}}</td>
+                    <td *ngIf="unpackedId == user.UserId"><button class="btn btn-danger" type="submit" value="remove" (click)="Destroy(user.UserId)">Delete</button><button class="btn btn-success" [routerLink]="['/orders']" >View Orders</button></td>
+                    <td [hidden]="unpackedId == user.UserId"><u>{{user.CreatedAt}}</u></td>
+                    <td>
+                        <ul [ngStyle]="{'list-style-type' : 'none'}" *ngFor="let product of products">
+                            <li *ngIf="product.Vendor.UserId == user.UserId"><a style="color: #fdbe02;" *ngIf="user.UserId == unpackedId" [routerLink]="['/app/product/edit', product.ProductId]">{{product.Name}}</a><a *ngIf="user.UserId != unpackedId" style="color: #fdbe02;" [routerLink]="['/app/product/show', product.ProductId]">{{product.Name}}</a></li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

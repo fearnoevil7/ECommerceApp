@@ -1,0 +1,12 @@
+<app-nav-menu [numberItemsInCart]="CartCount" [CurrentPageLandedOn]="CurrentPageUserIsOn"></app-nav-menu>
+<div class="EditBanner">
+    <h2 style="color: #f1cc97;">ETrade</h2>
+    <form class="ProfileEditForm" (submit)="sendToUpdate()">
+        <h3>Edit Profile</h3>
+        <input type="text" name="firstName" [value]="first_Name" [(ngModel)]="UserToUpdate.firstName" class="formfield1" />
+        <input type="text" name="firstName" [value]="last_Name" [(ngModel)]="UserToUpdate.lastName" class="formfield1" />
+        <input type="text" name="email" [value]="_email" [(ngModel)]="UserToUpdate.email" class="formfield1" />
+        <span>Password: </span><input type="text" name="password" [(ngModel)]="UserToUpdate.password" class="formfield1" />
+        <button type="submit" class="submitBtn" id="button">Update User</button>
+    </form>
+</div>

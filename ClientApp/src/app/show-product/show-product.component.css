@@ -1,0 +1,141 @@
+.ComponentBanner {
+  min-height: calc(100vh - 70px);
+  background: url("../../assets/pageBackground/singleBcg.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  text-align: center;
+  padding: 124px 0px 52px 0px;
+}
+
+.quantityAdjusterBtn {
+  background-color: transparent;
+  border: solid 2px #071013;
+  border-radius: 5px;
+  padding: 14px;
+}
+
+  .quantityAdjusterBtn:hover {
+    background-color: rgba(0, 0, 0, .1)
+  }
+
+
+.addToCartBtn {
+  transform: scale(1.4);
+  margin: 0px 0px 0px 37px;
+  height: 40px;
+}
+
+.infoSection {
+  background-color: #e9ecef;
+  border-radius: .3rem;
+  text-align: center;
+  width: 900px;
+  margin: 70px 0px 0px 200px;
+  padding: 34px;
+}
+
+.infoSection ul {
+    list-style-type: none;
+}
+
+.infoSection ul li {
+    display: inline-block;
+    margin: 0px 0px 0px 70px;
+}
+
+.ReviewRatingBtn {
+  background: none;
+  border: none;
+}
+
+.ReviewRatingBtn:hover :nth-child(1){
+  color: #fdbe02;
+}
+
+.ReviewRatingBtn:hover :nth-child(2) {
+  color: #fdbe02;
+}
+
+.ReviewRatingBtn:hover :nth-child(3) {
+  color: #fdbe02;
+}
+
+.ReviewRatingBtn:hover :nth-child(4) {
+  color: #fdbe02;
+}
+
+.ReviewRatingBtn:hover :nth-child(5) {
+  color: #fdbe02;
+}
+
+.infoSectionBtn {
+    background: none;
+    border: none;
+}
+
+  .infoSectionBtn:hover {
+    color: #55637d;
+  }
+
+
+.FormContainer {
+  margin: 16px 0px 0px 304px;
+  position: absolute;
+}
+
+  .FormContainer form input[type="text"] {
+    border: 0;
+    background: none;
+    border-bottom: 2px solid #55637d;
+    display: block;
+    font-size: 18px;
+    font-family: inherit;
+    padding: 15px 0;
+    width: 100%;
+    transition: 0.1s ease-in;
+    overflow: hidden;
+    margin: 0px 0px 16px 0px;
+  }
+
+    .FormContainer form input[type="text"]:focus, .FormContainer form input[type="text"]:valid {
+      border-bottom-color: #fdbe02;
+      outline: none;
+    }
+
+  .FormContainer form label {
+      font-size: 18px;
+      position: absolute;
+      top: 15px;
+      left: 0;
+  }
+
+  .FormContainer form input[type="text"]:focus + label, .FormContainer form input[type="text"]:valid + label {
+    color: #fdbe02;
+    transform: translateY(-30px);
+  }
+
+/*.FormContainer form label span {
+    display: inline-block;
+
+    transition: 0.3s ease; /*cubic-bezier(0.68, -0.55, 0.265, 1.55)
+
+}*/
+
+
+.ReviewSubmitButton {
+  background-color: #ffffff;
+  border: solid 2px #071013;
+  border-radius: 5px;
+  padding: 7px;
+  vertical-align: top;
+  height: 38px;
+  width: 80px;
+  margin: 0px 127px 0px 0px;
+}
+
+.ReviewSubmitButton:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}

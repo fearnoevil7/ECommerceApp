@@ -1,0 +1,67 @@
+<div class="CheckOutBanner">
+    <h2 style="color: #fdbe02;">ETrade</h2>
+    <h2 style="color: #071013;">Store</h2>
+</div>
+<div style="margin: 50px 0px 25px 223px;">
+  <h1 style="display: inline;"><u><b>Items In Cart</b></u></h1>
+</div>
+<table class="table myTable">
+    <thead>
+        <tr>
+            <th scope="col">Product</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total</th>
+            <th scope="col">  </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item1 of shoppingcart; let i = index">
+            <th scope="row"><img *ngIf="item1.Product.ImageUrl" [src]="item1.Product.ImageUrl" [alt]="item1.Product.ImageUrl" style="width: 100px; height: 100px;" /></th>
+            <td>{{ item1.Name }}</td>
+            <td>{{item1.Price}}</td>
+            <td>
+                <form style="display: inline-block;" (submit)="DecrementCartItem(item1.CartItemId, item1.ProductId)">
+                    <input type="hidden" [value]="user.ShoppingCart" [(ngModel)]="myCart" [ngModelOptions]="{standalone: true}" />
+                    <button class="quantityAdjusterBtn" type="submit">-</button>
+                </form>
+                <button class="quantityAdjusterBtn" style="margin: 0px 7px 0px 7px;">{{item1.Quantity}}</button>
+                <form style="display: inline-block;" (submit)="IncrementCartItem(item1.CartItemId, item1.ProductId)">
+                    <button class="quantityAdjusterBtn" type="submit">+</button>
+                </form>
+            </td>
+            <td>{{item1.Price * item1.Quantity}}</td>
+            <td>
+                <button class="shoppingCartDeleteButton" (click)="removeFromCart(item1.CartItemId, item1.Product.ProductId, item1.Quantity)" type="button">
+                    &times;
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div style="margin: 106px 0px 0px 450px;">
+    <button style="margin: 0px 0px 34px 57px;" class="ReturnToShoppingBtn">Continue Shopping</button>
+    <form style="display: inline;" (submit)="placeOrder()">
+        <button class="btn btn-warning" style="margin: 0px 0px 0px 16px; height: 44px; vertical-align: top;">Place Order</button>
+    </form>
+    <br />
+    <div class="checkoutInfo">
+        <p style="color: #fff;">Cart Total</p>
+        <br />
+        <div style="display: inline-block;">
+            <span>Sub Total</span>
+            <span>Tax</span>
+            <br />
+            <span>Order Total</span>
+        </div>
+        <div style="display: inline-block; margin: 0px 0px 0px 196px;">
+            <span>${{subTotal}}</span>
+            <span>${{tax}}</span>
+            <br />
+            <span style="color: #d52123;">${{total}}</span>
+        </div>
+    </div>
+</div>
+
+

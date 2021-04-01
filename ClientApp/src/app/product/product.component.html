@@ -1,0 +1,26 @@
+<section>
+    <input style="margin: 50px 0px 50px  0px" type="text" name="Name" [(ngModel)]="searchText" placeholder="Search For Product" />
+</section>
+
+<div class="productscontainer">
+    <div class="products" *ngFor="let product of products | filter1 : searchText : 'Name'">
+        <div *ngIf="product.Quantity > 0">
+            <br />
+            <div *ngIf="product.ImageUrl">
+                <img [src]="product.ImageUrl" [alt]="product.ImageUrl" style="width: 100px; height: 100px;" />
+            </div>
+            <br />
+            <p>Product: {{ product.Name }}</p>
+            <p>Quantity Left In Inventory: {{ product.Quantity }} left</p>
+            <p>Vendor: {{product.Vendor.FirstName}} {{product.Vendor.LastName}}</p>
+            <br />
+            <br />
+            <form (submit)="addToCart(product.ProductId)">
+                <label>Quantity Desired:</label>
+                <input type="number" name="Quantity" [(ngModel)]="count" />
+                <button type="submit" class="btn btn-success">Upload Product</button>
+            </form>
+            <br />
+        </div>
+    </div>
+</div>

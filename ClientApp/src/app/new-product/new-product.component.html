@@ -1,0 +1,24 @@
+<app-nav-menu [CurrentPageLandedOn]="CurrentPageUserIsOn" [numberItemsInCart]="CartCount" ></app-nav-menu>
+<div class="EditBanner">
+    <h2 style="color: #f1cc97;">ETrade</h2>
+    <form class="ProfileEditForm" (submit)="sendToCreate()">
+        <h1>Add A New Product!</h1>
+        <input class="formfield" type="text" name="Name" placeholder="name" [(ngModel)]="newProduct.Name" />
+        <span>Upload Product Image: </span><input class="formfield" type="file" (change)="onUpload($event)">
+        <textarea cols="20" rows="3" class="formfield" type="text" name="Description" placeholder="product description" [(ngModel)]="newProduct.Description"></textarea>
+        <input class="formfield" type="number" name="Quantity" placeholder="quantity" [(ngModel)]="newProduct.Quantity" />
+        <input class="formfield" type="number" step="any" name="Price" placeholder="price" [(ngModel)]="newProduct.Price" />
+        <span>Category: </span>
+        <select class="formfield selectFormField" type="text" name="Category" [(ngModel)]="newProduct.Category">
+            <option>Clothing</option>
+            <option>Jewelry</option>
+            <option>Sports Equipment</option>
+            <option>Electronics</option>
+            <option>Musical Instruments</option>
+        </select>
+        <span style="font-weight: bold; color: green;" *ngIf="progress > 0 && progess < 100"> {{progress}}% </span>
+        <span style="font-weight: bold; color: green;" *ngIf="message">{{message}}</span>
+        <br />
+        <button type="submit" class="submitBtn" >Upload Product</button>
+    </form>
+</div>
